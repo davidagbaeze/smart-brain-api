@@ -27,12 +27,7 @@ server.use(cors())
 server.use(express.json())
 
 
-server.get('/', (req, res)=>{
-  db.select('*').from('users')
-  .then(users=>{
-    res.json(users)
-  })
-})
+server.get('/', (req, res)=>{res.json('It is working')})
 
 server.post('/signin', (req, res)=> {signin.handleSignin(req, res, db, bcrypt)})
 server.post('/register', (req, res)=> {register.handleRegister(req,res,db, bcrypt, saltRounds)})
